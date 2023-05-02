@@ -33,9 +33,9 @@
 - [📝 License](#license)
 
 
-# 📖 Budget-app <a name="about-project"></a>
+# 📖 PocketPal <a name="about-project"></a>
 
-**Budget-app** 
+**PocketPal** 
 
 ## 🛠 Built With <a name="built-with"></a>
 
