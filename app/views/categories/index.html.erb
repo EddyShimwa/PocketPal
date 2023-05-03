@@ -1,14 +1,13 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Categories</h1>
+<% @categories.each do |category| %>
+  <div>
+    <img src=<%= category.icon %> class="card-img-top">
+    <%= link_to category.name, category_path(category) %>
 
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New category", new_category_path %>
+    <span><%= @payments.sum(:amount) %></span>
+     
+  </div>
+<% end %>
+<%= link_to 'Add a new category', new_category_path %>

@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Payments</h1>
-
-<div id="payments">
-  <% @payments.each do |payment| %>
-    <%= render payment %>
-    <p>
-      <%= link_to "Show this payment", payment %>
-    </p>
+<% if @category.present? %>
+  <h1><%= @category.name %> Payments</h1>
+  <% @category.payments.each do |payment| %>
+    <div>
+      <span><%= payment.amount %></span>
+      <span><%= payment.description %></span>
+      <span><%= payment.date %></span>
+    </div>
   <% end %>
-</div>
 
-<%= link_to "New payment", new_payment_path %>
+  <%= link_to "New payment", new_payment_path(category_id: @category.id) %>
+<% else %>
+  <p>Category not found.</p>
+<% end %>
