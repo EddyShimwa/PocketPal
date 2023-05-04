@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get 'splash/index'
-  resources :payments
-  resources :categories, only: [:index, :show, :new, :create] do
-    get 'payments', to: 'payments#index', as: 'payments'
+
+  
+  resources :categories do
+    resources :payments
   end
+  resources :payments
   devise_for :users
   root 'splash#index'
 

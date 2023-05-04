@@ -1,16 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<% if @category.present? %>
-  <h1><%= @category.name %> Payments</h1>
-  <% @category.payments.each do |payment| %>
-    <div>
-      <span><%= payment.amount %></span>
-      <span><%= payment.description %></span>
-      <span><%= payment.date %></span>
+<div class="container">
+  <h1>Payments</h1>
+  <% if @category %>
+    <p>Total: $<%= @total_amount %></p>
+    <div class="payments-list">
+      <% @payments.each do |payment| %>
+        <div class="payment-item">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= payment.name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= payment.created_at.to_date %></h6>
+              <p class="card-text">$<%= payment.amount %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
+    <%= link_to "Add new transaction", new_category_payment_path(category_id: @category.id), class: "btn btn-primary" %>
+  <% else %>
+    <p>Category not found.</p>
   <% end %>
-
-  <%= link_to "New payment", new_payment_path(category_id: @category.id) %>
-<% else %>
-  <p>Category not found.</p>
-<% end %>
+</div>

@@ -1,33 +1,18 @@
-<%= form_with(model: payment) do |form| %>
-  <% if payment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(payment.errors.count, "error") %> prohibited this payment from being saved:</h2>
+<header class="navbar">
+	<%= link_to '< Back', authenticated_root_path, class: 'back-btn'  %>
+	<h2 >New transaction</h2>
+</header>
+<%= form_with model: [@payment,@payment_category], method: :post, url: payments_path, scope: :payment, class: 'form transaction' do |form| %>
+	<div class="form-transaction">
+			<%= form.hidden_field :author_id, value: current_user.id %>
+			<%= form.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
+			<%= form.number_field :amount, class: 'field',placeholder: "amount" %>
+			<div class="filed-select">
+				<%= form.select :category_id, @categories.collect { |category| [ category.name, category.id ]},placeholder: "category" %>
+			</div>
+      		<div class="btn-transaction">
+			<%= form.submit "Save", class: "save-btn " %>
+		</div> 
+		<%end%>
+  
 
-      <ul>
-        <% payment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-
-  <div>
-    <%= form.label :category_id, style: "display: block" %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

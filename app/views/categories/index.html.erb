@@ -1,13 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Categories</h1>
-<% @categories.each do |category| %>
-  <div>
-    <img src=<%= category.icon %> class="card-img-top">
-    <%= link_to category.name, category_path(category) %>
-
-    <span><%= @payments.sum(:amount) %></span>
-     
+<div class="container mt-4">
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
   </div>
+<header class= "categories-header">
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <h1 class="mb-4">Categories</h1>
+</header>
+
+<% @categories.each do |category| %>
+<div class="card mb-3">
+<img src=<%= category.icon %> class="card-img-top">
+<div class="card-body">
+<%= link_to category.name, category_payments_path(category), class: "card-title h5 text-decoration-none" %>
+<p class="card-text"><span class="font-weight-bold">Total:</span> <%= number_to_currency(@payments.sum(:amount)) %></p>
+</div>
+</div>
 <% end %>
-<%= link_to 'Add a new category', new_category_path %>
+
+<%= link_to 'Add a new category', new_category_path, class: "btn btn-success mb-4 d-block d-sm-inline" %>
+
+</div>
