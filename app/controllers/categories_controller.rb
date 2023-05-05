@@ -4,8 +4,13 @@ class CategoriesController < ApplicationController
   # GET /categories or /categories.json
   def index
     @categories = Category.all
-    @payments = Payment.where(category_id: @categories)
-    @total_amount = @payments.sum(:amount)
+    @total_amounts = {}
+  
+    @categories.each do |category|
+      payments = Payment.where(category_id: category.id)
+      total_amount = payments.sum(:amount)
+      @total_amounts[category.id] = total_amount
+    end
   end
 
   # GET /categories/1 or /categories/1.json

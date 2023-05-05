@@ -12,6 +12,7 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = Payment.new
+    @payment_category = PaymentCategory.new
     @categories = Category.all
   end
 
@@ -22,7 +23,7 @@ class PaymentsController < ApplicationController
 
     @payment_category = @category.payment_categories.new(payment: @payment)
     if @payment_category.save
-      redirect_to payments_url(@category), notice: 'Payment was successfully created.'
+      redirect_to category_payments_path(@category), notice: 'Payment was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,18 +1,27 @@
-<header class="navbar">
-	<%= link_to '< Back', authenticated_root_path, class: 'back-btn'  %>
-	<h2 >New transaction</h2>
-</header>
-<%= form_with model: [@payment,@payment_category], method: :post, url: payments_path, scope: :payment, class: 'form transaction' do |form| %>
-	<div class="form-transaction">
-			<%= form.hidden_field :author_id, value: current_user.id %>
-			<%= form.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
-			<%= form.number_field :amount, class: 'field',placeholder: "amount" %>
-			<div class="filed-select">
-				<%= form.select :category_id, @categories.collect { |category| [ category.name, category.id ]},placeholder: "category" %>
-			</div>
-      		<div class="btn-transaction">
-			<%= form.submit "Save", class: "save-btn " %>
-		</div> 
-		<%end%>
-  
+<div class="container text-center">
+  <header class="items-header">
+    <h2>New transaction</h2>
+  </header>
 
+  <%= form_with model: [@payment, @payment_category], method: :post, url: category_payments_path, scope: :payment, class: 'form transaction' do |form| %>
+    <div class="form-group">
+      <%= form.hidden_field :author_id, value: current_user.id %>
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, placeholder: 'Transaction Name', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, class: 'form-control', placeholder: 'Amount' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :category_id, class: 'form-label' %>
+      <%= form.select :category_id, @categories.collect { |category| [ category.name, category.id ]}, {}, class: 'form-control', placeholder: 'Category' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

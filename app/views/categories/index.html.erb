@@ -1,22 +1,23 @@
-<div class="container mt-4">
-  <div class="alert alert-success" role="alert">
+<div class="container mt-2">
+<% if notice.present? %>
+  <div class="alert alert-success text-center" role="alert">
     <%= notice %>
   </div>
-<header class= "categories-header">
-  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <h1 class="mb-4">Categories</h1>
+<% end %>
+<header class="items-header">
+  <h1 class="categories-title">Categories</h1>
 </header>
 
 <% @categories.each do |category| %>
-<div class="card mb-3">
-<img src=<%= category.icon %> class="card-img-top">
+<div class="category-card">
+    <%= image_tag category.icon, height: 50 , alt: 'icon', class: "category-icon"%>
 <div class="card-body">
 <%= link_to category.name, category_payments_path(category), class: "card-title h5 text-decoration-none" %>
-<p class="card-text"><span class="font-weight-bold">Total:</span> <%= number_to_currency(@payments.sum(:amount)) %></p>
 </div>
+<p class="card-text"><span class="font-weight-bold">Total:</span> <%= number_to_currency(@total_amounts[category.id]) %></p>
 </div>
 <% end %>
 
-<%= link_to 'Add a new category', new_category_path, class: "btn btn-success mb-4 d-block d-sm-inline" %>
+<%= link_to 'Add a new category', new_category_path, class: "btn add-new mb-4 d-block " %>
 
 </div>
