@@ -5,6 +5,6 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
 
   def admin?
-    role == "admin"
+    role == 'admin'
   end
 end

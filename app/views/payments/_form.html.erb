@@ -3,7 +3,7 @@
     <h2>New transaction</h2>
   </header>
 
-  <%= form_with model: [@payment, @payment_category], method: :post, url: category_payments_path, scope: :payment, class: 'form transaction' do |form| %>
+  <%= form_with model: [@payment, @payment_category], method: :post, url: category_payments_path(@category), scope: :payment, class: 'form transaction' do |form| %>
     <div class="form-group">
       <%= form.hidden_field :author_id, value: current_user.id %>
       <%= form.label :name, class: 'form-label' %>

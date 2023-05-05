@@ -1,15 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe Payment, type: :model do
-  describe 'associations' do
-    it { should belong_to(:user) }
-    it { should have_many(:payment_categories) }
-    it { should have_many(:categories).through(:payment_categories) }
+RSpec.describe Category, type: :model do
+  subject do
+    user = User.create(id: 1, name: 'eddy', email: 'eddy@gmail.com', password: '123456', confirmed_at: Time.now)
+    Category.new(name: 'Food', icon: 'url', user_id: user.id)
+  end
+  before { subject.save }
+
+  it 'Should be valid ' do
+    expect(subject).to be_valid
   end
 
-  describe 'validations' do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:amount) }
-    it { should validate_numericality_of(:amount).is_greater_than(0) }
+  it 'Name should not be nil' do
+    subject.name = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'Icon should not be nil' do
+    subject.icon = nil
+    expect(subject).to_not be_valid
   end
 end

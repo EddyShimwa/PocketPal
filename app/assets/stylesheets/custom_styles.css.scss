@@ -16,7 +16,6 @@ body {
   padding: 10%;
   align-items: center;
   color: #fff;
-  // justify-content: space-between;
 }
 
 .btn-primary {
@@ -24,8 +23,13 @@ body {
   width: 100%;
 }
 
-.form-group
-.payments-header a {
+.items-header a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.form-group .payments-header a {
   font-size: 18px;
   color: #fff;
   text-decoration: none;
@@ -44,12 +48,6 @@ body {
   color: #fff;
 }
 
-.items-header a {
-  font-size: 18px;
-  color: #fff;
-  text-decoration: none;
-}
-
 .items-header a:hover {
   color: #fff;
   text-decoration: none;
@@ -64,16 +62,10 @@ body {
   margin-bottom: 3%;
 }
 
-
 .category-card .card-body {
   display: flex;
   justify-content: center;
-  width: 20%
-}
-
-
-.category-card card-image {
-  display: none
+  width: 20%;
 }
 
 .card-text {
@@ -83,13 +75,11 @@ body {
   margin: 0;
   color: #101010;
   padding: 5%;
-
 }
 
 .add-new {
   background-color: #5fb523;
   color: #fff;
-  
 }
 
 .total {

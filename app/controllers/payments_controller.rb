@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_category, only: [:index, :new, :create]
+  before_action :set_category, only: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :category_not_found
 
