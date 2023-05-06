@@ -1,0 +1,23 @@
+<div class="container mt-2">
+<% if notice.present? %>
+  <div class="alert alert-success text-center" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+<header class="items-header">
+  <h1 class="categories-title">Categories</h1>
+</header>
+
+<% @categories.each do |category| %>
+<div class="category-card">
+    <%= image_tag category.icon, height: 50 , alt: 'icon', class: "category-icon"%>
+<div class="card-body">
+<%= link_to category.name, category_payments_path(category), class: "card-title h5 text-decoration-none" %>
+</div>
+<p class="card-text"><span class="font-weight-bold">Total:</span> <%= number_to_currency(@total_amounts[category.id]) %></p>
+</div>
+<% end %>
+
+<%= link_to 'Add a new category', new_category_path, class: "btn add-new mb-4 d-block " %>
+
+</div>

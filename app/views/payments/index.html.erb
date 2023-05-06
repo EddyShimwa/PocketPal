@@ -1,0 +1,26 @@
+<header class="payments-header">
+   <%= link_to "", categories_path, class: "bi bi-arrow-left", style: "font-size: 2rem; font-weight: 700;" %>
+  <h1>Transactions</h1>
+</header>
+
+<div class="container">
+  <% if @category %>
+    <h3 class= "total">Total: $<%= @total_amount %></h3>
+    <div class="payments-list">
+      <% @payments.each do |payment| %>
+        <div class="payment-item">
+          <div class="payment-card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><%= payment.name %></h5>
+              <p class="card-text">$<%= payment.amount %></p>
+            </div>
+              <h6 class="date mb-2 text-muted"><%= payment.created_at.to_date %></h6>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to "Add new transaction", new_category_payment_path(category_id: @category.id), class: "btn add-new mb-4 d-block" %>
+  <% else %>
+    <p>Category not found.</p>
+  <% end %>
+</div>

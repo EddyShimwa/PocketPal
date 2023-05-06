@@ -35,7 +35,7 @@
 
 # 📖 PocketPal <a name="about-project"></a>
 
-**PocketPal** 
+**PocketPal is a software app which allows users to track income, expenses, and savings, set financial goals, and monitor their progress towards those goals. Budget apps can also offer features such as bill reminders, categorization of expenses, and analysis of spending habits.** 
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -66,7 +66,9 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-The link will be added soon.
+- [Live Demo](https://pocket-pal-app.onrender.com)
+
+- [Live Video](https://www.loom.com/share/db41602983204fdc98004470d4696c38)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -135,13 +137,8 @@ gem install rspec
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Setup and controllers.]**
-- [ ] **[I will add process data in models]**
-- [ ] **[I will add some views]**
-- [ ] **[I will some forms]**
-- [ ] **[I will add some validations]**
-- [ ] **[I will add devise]**
-- [ ] **[I will add authorization rules]**
+- [ ] **[I'll improve sylings.]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

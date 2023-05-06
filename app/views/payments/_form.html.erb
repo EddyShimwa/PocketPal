@@ -1,0 +1,27 @@
+<div class="container text-center">
+  <header class="items-header">
+    <h2>New transaction</h2>
+  </header>
+
+  <%= form_with model: [@payment, @payment_category], method: :post, url: category_payments_path(@category), scope: :payment, class: 'form transaction' do |form| %>
+    <div class="form-group">
+      <%= form.hidden_field :author_id, value: current_user.id %>
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, placeholder: 'Transaction Name', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :amount, class: 'form-label' %>
+      <%= form.number_field :amount, class: 'form-control', placeholder: 'Amount' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :category_id, class: 'form-label' %>
+      <%= form.select :category_id, @categories.collect { |category| [ category.name, category.id ]}, {}, class: 'form-control', placeholder: 'Category' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Save", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
