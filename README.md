@@ -66,7 +66,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-The link will be added soon.
+- [Live Demo](pocketpal-vqre.onrender.com)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -135,13 +135,8 @@ gem install rspec
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Setup and controllers.]**
-- [ ] **[I will add process data in models]**
-- [ ] **[I will add some views]**
-- [ ] **[I will some forms]**
-- [ ] **[I will add some validations]**
-- [ ] **[I will add devise]**
-- [ ] **[I will add authorization rules]**
+- [ ] **[I'll improve sylings.]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
