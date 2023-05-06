@@ -2,14 +2,14 @@ databases:
   - name: postgres
     ipAllowList: []
     databaseName: pocket_pal
-    user: eddy
+    user: postgres
 
 services:
   - type: web
     name: PocketPal
     env: ruby
-    buildCommand: "./render-build.sh"
-    startCommand: "bundle exec rails s"
+    buildCommand: "./bin/render-build.sh"
+    startCommand: 'bundle exec puma -C config/puma.rb'
     envVars:
       - key: DATABASE_URL
         fromDatabase:
