@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-  def after_sign_in_path_for(_resource)
+  def after_sign_in_path_for(resource)
     if current_user
       categories_path
     else
-      root_path # or some other path that makes sense
+      splash_index_path # or some other path that makes sense
     end
   end
   protect_from_forgery with: :exception
@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
       u.permit(:name, :email, :password,
                :current_password)
     end
+  end
+
+  def after_sign_out_path_for(_resource_or_scope)
+    unauthenticated_root_path
   end
 end
