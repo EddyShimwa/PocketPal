@@ -8,7 +8,7 @@ RSpec.describe 'splash/index.html.erb', type: :view do
 
   it 'displays a message prompting the user to sign in or log in' do
     render
-    expect(rendered).to have_selector('p', text: 'Please sign in or log in to continue:')
+    expect(rendered).to have_selector('p', text: 'Please sign in or log in to Get started:')
   end
 
   it "displays a 'Sign In' button" do

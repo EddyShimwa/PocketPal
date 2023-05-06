@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     if current_user
       categories_path
     else
