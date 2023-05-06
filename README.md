@@ -67,6 +67,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [Live Demo](pocketpal-vqre.onrender.com)
+- [Live Video](https://www.loom.com/share/db41602983204fdc98004470d4696c38)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
