@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     root 'splash#index'
   end
 
+  get 'splash/index'
+
   resources :categories do
     resources :payments
   end
