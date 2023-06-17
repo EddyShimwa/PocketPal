@@ -137,7 +137,7 @@ gem install rspec
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[I'll improve sylings.]**
+- [ ] **[I'll add some sylings.]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
